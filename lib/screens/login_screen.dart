@@ -89,7 +89,7 @@ class _LoginForm extends StatelessWidget {
                 child:  Text('Ingresar', style: const TextStyle(color: Colors.white),)
               ),
               onPressed: () {
-                
+                Navigator.pushReplacementNamed(context, 'home');
               },
             )
 

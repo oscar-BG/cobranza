@@ -17,7 +17,7 @@ class InputDecorations {
       hintText: hintText,
       labelText: labelText,
       labelStyle: const TextStyle(color: Colors.white),
-      prefix: Icon( prefixIcon, color: Color.fromRGBO(237, 128, 12, 1) )
+      prefix: Icon( prefixIcon, color: Color.fromRGBO(237, 128, 12, 1))
     );
   }
 }
