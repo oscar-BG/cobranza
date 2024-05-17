@@ -9,7 +9,7 @@ class CardContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 400),
+      padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.all(20),
@@ -20,7 +20,7 @@ class CardContainer extends StatelessWidget {
   }
 
   BoxDecoration _createCardShape() => BoxDecoration(
-    color: Colors.white,
+    color: Color.fromRGBO(2, 63, 120, 1),
     borderRadius: BorderRadius.circular(25),
     boxShadow: const [
       BoxShadow(
