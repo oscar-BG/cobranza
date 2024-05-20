@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:credito_cobranza/widgets/card_container_home.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -29,77 +30,78 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text('¡Bienvendido ....!', style: TextStyle( fontSize: 25, fontWeight: FontWeight.bold, color: Color.fromRGBO(2, 63, 120, 1)),),
-            SizedBox(height: 30,),
-            Container(
-              width: double.infinity,
-              color: Color.fromRGBO(2, 63, 120, 1),
-              child: DataTable(
-                headingTextStyle: TextStyle(color: Colors.white),
-                dataTextStyle: TextStyle(color: Colors.white),
-                columns: <DataColumn>[
-                  DataColumn(label: Expanded(child: Text('Clientres'))),
-                  DataColumn(label: Expanded(child: Text('Ciudad'),)),
-                ],
-                rows:  <DataRow> [
-                  DataRow(cells: <DataCell>[
-                    DataCell(Row(
-                      children: [
-                        CircleAvatar(backgroundColor: Colors.blue[500], child: const Text('JM'),),
-                        const SizedBox(width: 8),
-                        const Text('José Martinez Robledo'),
-                      ],
-                    )),
-                    const DataCell(Text('Puebla, México'))
-                  ]),
-                  const DataRow(cells: <DataCell>[
-                    DataCell( Row(
-                      children: [
-                        CircleAvatar(backgroundImage: NetworkImage('https://www.kindpng.com/picc/m/24-245173_dama-profesor-perfil-la-cabeza-mujeres-mujer-user.png'),),
-                        SizedBox(width: 8,),
-                        Text('Angela Gómez Pelaes')
-                      ],
-                    )),
-                    DataCell(Text('CDMX, México'))
-                  ]),
-                  const DataRow(cells: <DataCell>[
-                    DataCell( Row(
-                      children: [
-                        CircleAvatar(backgroundImage: NetworkImage('https://gorental.es/wp-content/uploads/2022/01/face_icons-circle-59.png'),),
-                        SizedBox(width: 8,),
-                        Text('Miguel Pérez Gutierrez')
-                      ],
-                    )),
-                    DataCell(Text('CDMX, México'))
-                  ]),
-                ],
-              ),
+            const Text('¡Bienvendido ....!', style: TextStyle( fontSize: 25, fontWeight: FontWeight.bold, color: Color.fromRGBO(2, 63, 120, 1)),),
+            const SizedBox(height: 30,),
+            CardContainerHome(
+              child: SingleChildScrollView (
+                scrollDirection: Axis.horizontal,
+                child: DataTable(
+                  headingTextStyle: const TextStyle(color: Colors.white),
+                  dataTextStyle: const TextStyle(color: Colors.white),
+                  columns: const <DataColumn>[
+                    DataColumn(label: Expanded(child: Text('Clientres'))),
+                    DataColumn(label: Expanded(child: Text('Ciudad'),)),
+                  ],
+                  rows:  <DataRow> [
+                    DataRow(cells: <DataCell>[
+                      DataCell(Row(
+                        children: [
+                          CircleAvatar(backgroundColor: Colors.blue[500], child: const Text('JM'),),
+                          const SizedBox(width: 8),
+                          const Text('José Martinez Robledo'),
+                        ],
+                      )),
+                      const DataCell(Text('Puebla, México'))
+                    ]),
+                    const DataRow(cells: <DataCell>[
+                      DataCell( Row(
+                        children: [
+                          CircleAvatar(backgroundImage: NetworkImage('https://www.kindpng.com/picc/m/24-245173_dama-profesor-perfil-la-cabeza-mujeres-mujer-user.png'), ),
+                          SizedBox(width: 8,),
+                          Text('Angela Gómez Pelaes')
+                        ],
+                      )),
+                      DataCell(Text('CDMX, México'))
+                    ]),
+                    const DataRow(cells: <DataCell>[
+                      DataCell( Row(
+                        children: [
+                          CircleAvatar(backgroundImage: NetworkImage('https://gorental.es/wp-content/uploads/2022/01/face_icons-circle-59.png'),),
+                          SizedBox(width: 8,),
+                          Text('Miguel Pérez Gutierrez')
+                        ],
+                      )),
+                      DataCell(Text('CDMX, México'))
+                    ]),
+                  ],
+                )
+              ) 
             ),
             const SizedBox(height: 40,),
-            Container(
-              width: double.infinity,
-              color: Color.fromRGBO(2, 63, 120, 1),
+            CardContainerHome(
               child: Column(
                 children: [
-                  TextButton(
-
+                  TextButton.icon(
+                    onPressed: () {},
+                    icon: const Icon(Icons.playlist_add_outlined, color: Colors.white,),
+                    label: const Text('Nueva solicitud', style: TextStyle(color: Colors.white),),
                     style: TextButton.styleFrom(
-                      backgroundColor: Color.fromRGBO(237, 128, 12, 1),
-                      fixedSize: Size(150, 50),  
+                      backgroundColor: const Color.fromRGBO(237, 128, 12, 1),
+                      fixedSize: const Size(180, 50)
                     ),
-                    onPressed: () { },
-                    child: Text('Nueva solicitud', style: TextStyle(color: Colors.white),),
                   ),
-                  SizedBox(height: 10,),
-                  TextButton(
-
+                  const SizedBox(height: 10,),
+                  TextButton.icon(
+                    onPressed: () { },
+                    icon: const Icon(Icons.search, color: Colors.white,),
+                    label: const Text('Buscar cliente', style: TextStyle(color: Colors.white), ),
                     style: TextButton.styleFrom(
-                      backgroundColor: Color.fromRGBO(237, 128, 12, 1),
-                      fixedSize: Size(150, 50),  
+                      backgroundColor: const Color.fromRGBO(237, 128, 12, 1),
+                      fixedSize: const Size(180, 50),
                     ),
-                    onPressed: () { },
-                    child: Text('Buscar cliente', style: TextStyle(color: Colors.white),),
                   ),
+                  const SizedBox(height: 10,),
+
                 ],
               ),
             )
