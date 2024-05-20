@@ -16,8 +16,10 @@ class MyApp extends StatelessWidget {
       title: 'Inicio de Sesión',
       initialRoute: 'login',
       routes: {
-        'login':  (_) => LoginScreen(),
-        'home':   (_) => HomeScreen(),
+        'login':          (_) => LoginScreen(),
+        'home':           (_) => HomeScreen(),
+        'search_client' : (_) => SearchClientScreen(),
+        'new_credit'    : (_) => FormNewCreditScreen(),
       },
       theme: ThemeData.light(useMaterial3: true).copyWith(
         scaffoldBackgroundColor: Colors.grey[300]

@@ -1,5 +1,5 @@
-import 'package:credito_cobranza/widgets/auth_background.dart';
 import 'package:flutter/material.dart';
+import 'package:credito_cobranza/widgets/auth_background.dart';
 import 'package:credito_cobranza/ui/input_decorations.dart';
 import 'package:credito_cobranza/widgets/card_container.dart';
 

@@ -1,3 +1,4 @@
+import 'package:credito_cobranza/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:credito_cobranza/widgets/card_container_home.dart';
 
@@ -39,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   headingTextStyle: const TextStyle(color: Colors.white),
                   dataTextStyle: const TextStyle(color: Colors.white),
                   columns: const <DataColumn>[
-                    DataColumn(label: Expanded(child: Text('Clientres'))),
+                    DataColumn(label: Expanded(child: Text('Clientes'))),
                     DataColumn(label: Expanded(child: Text('Ciudad'),)),
                   ],
                   rows:  <DataRow> [
@@ -82,7 +83,10 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      final route = MaterialPageRoute(builder: (context) => FormNewCreditScreen());
+                      Navigator.push(context, route);
+                    },
                     icon: const Icon(Icons.playlist_add_outlined, color: Colors.white,),
                     label: const Text('Nueva solicitud', style: TextStyle(color: Colors.white),),
                     style: TextButton.styleFrom(
@@ -92,7 +96,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: 10,),
                   TextButton.icon(
-                    onPressed: () { },
+                    onPressed: () {
+                      final route = MaterialPageRoute(builder: (context) => const SearchClientScreen());
+                      Navigator.push(context, route);
+                    },
                     icon: const Icon(Icons.search, color: Colors.white,),
                     label: const Text('Buscar cliente', style: TextStyle(color: Colors.white), ),
                     style: TextButton.styleFrom(
