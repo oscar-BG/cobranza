@@ -17,13 +17,58 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Image.asset('assets/images/infra.png', width: 100, height: 50, fit: BoxFit.contain,),
         backgroundColor: Color.fromRGBO(237, 128, 12, 1),
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 10.0),
-            child: CircleAvatar(
-              backgroundColor: Colors.blue[500],
-              child: const Text('OB'),
+          IconButton(
+            iconSize: 30,
+            icon: const Icon(
+              Icons.notifications_active,
+              color: Color.fromRGBO(2, 63, 120, 1),
             ),
-          )
+            onPressed: () {},
+          ),
+          const SizedBox(width: 10,),
+          
+          PopupMenuButton(
+            color: Color.fromRGBO(2, 63, 120, 1),
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+              const PopupMenuItem<String>(
+                value: 'configuracion',
+                child: Row(
+                  children: [
+                    Icon( Icons.settings, color: Colors.white,),
+                    SizedBox(width: 10,),
+                    Text('Configuración', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)
+                  ],
+                ),
+              ),
+              const PopupMenuItem<String>(
+                value: 'cerrar_session',
+                child: Row(
+                  children: [
+                    Icon(Icons.logout, color: Colors.white,),
+                    SizedBox(width: 10,),
+                    Text('Cerrar Sesión', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)
+                  ],
+                ),
+              ),
+            ],
+            onOpened: () {},
+            onSelected: (value) {
+              switch (value) {
+                case 'configuracion':
+                  break;
+                case 'cerrar_session':
+                  Navigator.pushReplacementNamed(context, 'login');
+                  break;
+              }
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(right: 10.0),
+              child: CircleAvatar(
+                backgroundColor: Colors.blue[500],
+                child: const Text('OB'),
+              ),
+            ),
+          ),
         ],
       ),
       body:  Padding(
