@@ -1,6 +1,7 @@
-import 'package:credito_cobranza/screens/screens.dart';
 import 'package:flutter/material.dart';
+import 'package:credito_cobranza/screens/screens.dart';
 import 'package:credito_cobranza/widgets/card_container_home.dart';
+import 'package:credito_cobranza/widgets/custom_popup_menu_button.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,47 +28,18 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           const SizedBox(width: 10,),
           
-          PopupMenuButton(
-            color: Color.fromRGBO(2, 63, 120, 1),
-            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-              const PopupMenuItem<String>(
-                value: 'configuracion',
-                child: Row(
-                  children: [
-                    Icon( Icons.settings, color: Colors.white,),
-                    SizedBox(width: 10,),
-                    Text('Configuración', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)
-                  ],
-                ),
-              ),
-              const PopupMenuItem<String>(
-                value: 'cerrar_session',
-                child: Row(
-                  children: [
-                    Icon(Icons.logout, color: Colors.white,),
-                    SizedBox(width: 10,),
-                    Text('Cerrar Sesión', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)
-                  ],
-                ),
-              ),
-            ],
-            onOpened: () {},
-            onSelected: (value) {
+          CustomPopupMenuButton(
+            onSelected: (String value, BuildContext parentContext) {
+              print(value); // Imprimir el valor seleccionado
+              // Manejar las opciones seleccionadas
               switch (value) {
                 case 'configuracion':
                   break;
-                case 'cerrar_session':
-                  Navigator.pushReplacementNamed(context, 'login');
+                case 'cerrar_sesion':
+                  Navigator.pushReplacementNamed(parentContext, 'login');
                   break;
               }
             },
-            child: Padding(
-              padding: const EdgeInsets.only(right: 10.0),
-              child: CircleAvatar(
-                backgroundColor: Colors.blue[500],
-                child: const Text('OB'),
-              ),
-            ),
           ),
         ],
       ),

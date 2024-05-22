@@ -1,6 +1,7 @@
-import 'package:credito_cobranza/widgets/card_container_home.dart';
 import 'package:flutter/material.dart';
 import 'package:credito_cobranza/ui/input_decorations_search.dart';
+import 'package:credito_cobranza/widgets/card_container_home.dart';
+import 'package:credito_cobranza/widgets/custom_popup_menu_button.dart';
 
 class SearchClientScreen extends StatefulWidget {
   const SearchClientScreen({super.key});
@@ -17,13 +18,29 @@ class _SearchClientScreenState extends State<SearchClientScreen> {
         title: Image.asset('assets/images/infra.png', width: 100, height: 50, fit: BoxFit.contain,),
         backgroundColor: const Color.fromRGBO(237, 128, 12, 1),
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 10.0),
-            child: CircleAvatar(
-              backgroundColor: Colors.blue[500],
-              child: const Text('OB'),
+          IconButton(
+            iconSize: 30,
+            icon: const Icon(
+              Icons.notifications_active,
+              color: Color.fromRGBO(2, 63, 120, 1),
             ),
-          )
+            onPressed: () {},
+          ),
+          const SizedBox(width: 10,),
+          
+          CustomPopupMenuButton(
+            onSelected: (String value, BuildContext parentContext) {
+              print(value); // Imprimir el valor seleccionado
+              // Manejar las opciones seleccionadas
+              switch (value) {
+                case 'configuracion':
+                  break;
+                case 'cerrar_sesion':
+                  Navigator.pushReplacementNamed(parentContext, 'login');
+                  break;
+              }
+            },
+          ),
         ],
       ),
       body:  SingleChildScrollView (
