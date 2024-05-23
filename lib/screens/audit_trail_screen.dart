@@ -39,6 +39,71 @@ class AuditTrailScreen extends StatelessWidget {
           ),
         ],
       ),
+      body: ResponsiveGrid(),
     );
   }
 }
+
+
+
+class ResponsiveGrid extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('Este es un tituulo', style: TextStyle(fontSize: 30)),
+          Expanded(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                // Determina el número de columnas basado en el ancho disponible
+                int crossAxisCount = constraints.maxWidth > 600 ? 2 : 1;
+            
+                return GridView.count(
+                  crossAxisCount: crossAxisCount,
+                  crossAxisSpacing: 16.0,
+                  mainAxisSpacing: 16.0,
+                  children: [
+                    _GridItem(index: 0),
+                    _GridItem(index: 1),
+                    _GridItem(index: 2),
+                    _GridItem(index: 3),
+                  ],
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _GridItem extends StatelessWidget {
+  final int index;
+
+  const _GridItem({Key? key, required this.index}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.blue,
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Center(
+        child: Text(
+          'Item ${index + 1}',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
