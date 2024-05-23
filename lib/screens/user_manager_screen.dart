@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:credito_cobranza/screens/screens.dart';
 import 'package:credito_cobranza/widgets/custom_popup_menu_button.dart';
 import 'package:credito_cobranza/widgets/card_container_home.dart';
+import 'package:credito_cobranza/ui/input_decorations_search.dart';
 
 class UserManagerScreen extends StatelessWidget {
   const UserManagerScreen({super.key});
@@ -47,7 +48,7 @@ class UserManagerScreen extends StatelessWidget {
             Text('Usuarios', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Color.fromRGBO(2, 63, 120, 1)),),
             SizedBox(height: 30,),
             TextButton.icon(
-              onPressed: () {},
+              onPressed: () => _dialogFormAddUser(context),
               icon: Icon(Icons.playlist_add_rounded, color: Colors.white),
               label: Text('Agregar Usuarios', style: TextStyle(color: Colors.white)),
               style: TextButton.styleFrom(
@@ -104,4 +105,96 @@ class UserManagerScreen extends StatelessWidget {
       )
     );
   }
+}
+
+Future<void> _dialogFormAddUser(BuildContext context) {
+  return showDialog(
+    barrierDismissible: false,
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text('Agregar nuevo usuario'),
+        content: Form(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextFormField(
+                autofocus: true,
+                autocorrect: false,
+                keyboardType: TextInputType.name,
+                decoration: InputDecorationsSearch.authInputDecoration(hintText: 'Usuario', prefixIcon: Icons.person),
+                style: const TextStyle(color: Colors.black),
+                validator: (value) {
+                  // print(value);
+                },
+              ),
+              const SizedBox(height: 10,),
+              TextFormField(
+                autofocus: true,
+                autocorrect: false,
+                keyboardType: TextInputType.name,
+                decoration: InputDecorationsSearch.authInputDecoration(hintText: 'Nombre', prefixIcon: Icons.person),
+                style: const TextStyle(color: Colors.black),
+                validator: (value) {
+                  // print(value);
+                },
+              ),
+              const SizedBox(height: 10,),
+              DropdownButtonFormField(
+                items: const [
+                  DropdownMenuItem(value: 'zona1', child: Text('User 1'),),
+                  DropdownMenuItem(value: 'zona2', child: Text('User 2'),),
+                  DropdownMenuItem(value: 'zona3', child: Text('User 3'),),
+                ],
+                decoration: InputDecorationsSearch.authInputDecoration(hintText: 'Tipo de Usuario', prefixIcon: Icons.group_sharp),
+                onChanged: (value) {},
+              ),
+              const SizedBox(height: 10,),
+              DropdownButtonFormField(
+                items: const [
+                  DropdownMenuItem(value: 'zona1', child: Text('Zona 1'),),
+                  DropdownMenuItem(value: 'zona2', child: Text('Zona 2'),),
+                  DropdownMenuItem(value: 'zona3', child: Text('Zona 3'),),
+                ],
+                decoration: InputDecorationsSearch.authInputDecoration(hintText: 'Zona', prefixIcon: Icons.person_pin_circle),
+                onChanged: (value) {},
+              ),
+              const SizedBox(height: 10,),
+              DropdownButtonFormField(
+                items: const [
+                  DropdownMenuItem(value: 'Estado1', child: Text('Estado 1'),),
+                  DropdownMenuItem(value: 'Estado2', child: Text('Estado 2'),),
+                  DropdownMenuItem(value: 'Estado3', child: Text('Estado 3'),),
+                ],
+                decoration: InputDecorationsSearch.authInputDecoration(hintText: 'Estado', prefixIcon: Icons.map),
+                onChanged: (value) {},
+              ),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          TextButton.icon(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(Icons.close, color: Colors.white,),
+            label: const Text('Cerrar', style: TextStyle(color: Colors.white), ),
+            style: TextButton.styleFrom(
+              backgroundColor: const Color.fromRGBO(237, 128, 12, 1),
+              fixedSize: const Size(180, 50),
+            ),
+          ),
+          TextButton.icon(
+            onPressed: () {},
+            icon: const Icon(Icons.save_alt, color: Colors.white,),
+            label: const Text('Guardar', style: TextStyle(color: Colors.white), ),
+            style: TextButton.styleFrom(
+              backgroundColor: const Color.fromRGBO(237, 128, 12, 1),
+              fixedSize: const Size(180, 50),
+            ),
+          ),
+        ],
+      );
+    }
+  );
 }

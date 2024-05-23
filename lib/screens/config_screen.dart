@@ -113,7 +113,8 @@ class _MenuCatalogue extends StatelessWidget {
         padding: const EdgeInsets.all(30.0),
         child: TextButton(
           onPressed: () {
-            // Aquí puedes agregar la lógica para redirigir a otra pestaña
+            final route = MaterialPageRoute(builder: (context) => const CatalogueScreen());
+            Navigator.push(context, route);
           },
           child: const Column(
             mainAxisSize: MainAxisSize.min,
@@ -146,7 +147,8 @@ class _MenuAuditTrail extends StatelessWidget {
         padding: const EdgeInsets.all(30.0),
         child: TextButton(
           onPressed: () {
-            // Aquí puedes agregar la lógica para redirigir a otra pestaña
+            final route = MaterialPageRoute(builder: (context) => const AuditTrailScreen());
+            Navigator.push(context, route);
           },
           child: const Column(
             mainAxisSize: MainAxisSize.min,
