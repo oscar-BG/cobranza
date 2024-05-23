@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:credito_cobranza/ui/input_decorations_search.dart';
 import 'package:credito_cobranza/widgets/custom_popup_menu_button.dart';
+import 'package:credito_cobranza/screens/screens.dart';
 
 class FormNewCreditScreen extends StatefulWidget {
   const FormNewCreditScreen({super.key});
@@ -33,6 +34,8 @@ class _FormNewCreditScreenState extends State<FormNewCreditScreen> {
               // Manejar las opciones seleccionadas
               switch (value) {
                 case 'configuracion':
+                  final route = MaterialPageRoute(builder: (context) => const ConfigScreen());
+                  Navigator.push(context, route);
                   break;
                 case 'cerrar_sesion':
                   Navigator.pushReplacementNamed(parentContext, 'login');

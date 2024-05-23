@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:credito_cobranza/ui/input_decorations_search.dart';
 import 'package:credito_cobranza/widgets/card_container_home.dart';
 import 'package:credito_cobranza/widgets/custom_popup_menu_button.dart';
+import 'package:credito_cobranza/screens/screens.dart';
 
 class SearchClientScreen extends StatefulWidget {
   const SearchClientScreen({super.key});
@@ -34,6 +35,8 @@ class _SearchClientScreenState extends State<SearchClientScreen> {
               // Manejar las opciones seleccionadas
               switch (value) {
                 case 'configuracion':
+                  final route = MaterialPageRoute(builder: (context) => const ConfigScreen());
+                  Navigator.push(context, route);
                   break;
                 case 'cerrar_sesion':
                   Navigator.pushReplacementNamed(parentContext, 'login');

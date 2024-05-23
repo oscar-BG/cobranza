@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
         'home':           (_) => HomeScreen(),
         'search_client' : (_) => SearchClientScreen(),
         'new_credit'    : (_) => FormNewCreditScreen(),
+        'config_screen' : (_) => ConfigScreen()
       },
       theme: ThemeData.light(useMaterial3: true).copyWith(
         scaffoldBackgroundColor: Colors.grey[300]

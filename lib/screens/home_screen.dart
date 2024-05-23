@@ -34,6 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
               // Manejar las opciones seleccionadas
               switch (value) {
                 case 'configuracion':
+                  final route = MaterialPageRoute(builder: (context) => const ConfigScreen());
+                  Navigator.push(context, route);
                   break;
                 case 'cerrar_sesion':
                   Navigator.pushReplacementNamed(parentContext, 'login');
