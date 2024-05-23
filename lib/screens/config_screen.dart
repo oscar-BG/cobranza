@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:credito_cobranza/widgets/custom_popup_menu_button.dart';
 import 'package:credito_cobranza/widgets/card_container_home.dart';
+import 'package:credito_cobranza/screens/screens.dart';
 
 class ConfigScreen extends StatelessWidget {
   const ConfigScreen({super.key});
@@ -45,7 +46,7 @@ class ConfigScreen extends StatelessWidget {
           child: Flex(
             direction: direction,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
+            children: const [
               _MenuUser(),
               _MenuCatalogue(),
               _MenuAuditTrail()
@@ -78,6 +79,8 @@ class _MenuUser extends StatelessWidget {
         child: TextButton(
           onPressed: () {
             // Aquí puedes agregar la lógica para redirigir a otra pestaña
+            final route = MaterialPageRoute(builder: (context) => const UserManagerScreen());
+            Navigator.push(context, route);
           },
           child: const Column(
             mainAxisSize: MainAxisSize.min,
