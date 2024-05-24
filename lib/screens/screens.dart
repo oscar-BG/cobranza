@@ -6,3 +6,6 @@ export 'package:credito_cobranza/screens/config_screen.dart';
 export 'package:credito_cobranza/screens/user_manager_screen.dart';
 export 'package:credito_cobranza/screens/catalogue_screen.dart';
 export 'package:credito_cobranza/screens/audit_trail_screen.dart';
+export 'package:credito_cobranza/screens/type_doct_physical_person_screen.dart';
+export 'package:credito_cobranza/screens/type_doct_moral_person_screen.dart';
+export 'package:credito_cobranza/screens/type_doct_group_screen.dart';

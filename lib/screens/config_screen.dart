@@ -57,11 +57,11 @@ class _MenuUser extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color.fromRGBO(237, 128, 12, 1),
+        color: Color.fromRGBO(2, 63, 120, 1),
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
           width: 2,
-          color: Color.fromRGBO(237, 128, 12, 1),
+          color: Color.fromRGBO(2, 63, 120, 1),
         )
       ),
       child: Padding(
@@ -92,11 +92,11 @@ class _MenuCatalogue extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color.fromRGBO(237, 128, 12, 1),
+        color: Color.fromRGBO(2, 63, 120, 1),
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
           width: 2,
-          color: Color.fromRGBO(237, 128, 12, 1),
+          color: Color.fromRGBO(2, 63, 120, 1),
         )
       ),
       child: Padding(
@@ -126,11 +126,11 @@ class _MenuAuditTrail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color.fromRGBO(237, 128, 12, 1),
+        color: Color.fromRGBO(2, 63, 120, 1),
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
           width: 2,
-          color: Color.fromRGBO(237, 128, 12, 1),
+          color: Color.fromRGBO(2, 63, 120, 1),
         )
       ),
       child: Padding(
@@ -159,17 +159,20 @@ class _PersonMoral extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color.fromRGBO(237, 128, 12, 1),
+        color: Color.fromRGBO(2, 63, 120, 1),
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
           width: 2,
-          color: Color.fromRGBO(237, 128, 12, 1),
+          color: Color.fromRGBO(2, 63, 120, 1),
         )
       ),
       child: Padding(
         padding: const EdgeInsets.all(30.0),
         child: TextButton(
-          onPressed: () {},
+          onPressed: () {
+            final route = MaterialPageRoute(builder: (context) => const TypeDoctMoralPersonScreen());
+            Navigator.push(context, route);
+          },
           child: const Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -189,17 +192,20 @@ class _PersonFisical extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color.fromRGBO(237, 128, 12, 1),
+        color: Color.fromRGBO(2, 63, 120, 1),
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
           width: 2,
-          color: Color.fromRGBO(237, 128, 12, 1),
+          color: Color.fromRGBO(2, 63, 120, 1),
         )
       ),
       child: Padding(
         padding: const EdgeInsets.all(30.0),
         child: TextButton(
-          onPressed: () {},
+          onPressed: () {
+            final route = MaterialPageRoute(builder: (context) => const TypeDoctPhysicalPersonScreen());
+            Navigator.push(context, route);
+          },
           child: const Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -219,17 +225,19 @@ class _Grupo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color.fromRGBO(237, 128, 12, 1),
+        color: Color.fromRGBO(2, 63, 120, 1),
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
           width: 2,
-          color: Color.fromRGBO(237, 128, 12, 1),
+          color: Color.fromRGBO(2, 63, 120, 1),
         )
       ),
       child: Padding(
         padding: const EdgeInsets.all(30.0),
         child: TextButton(
           onPressed: () {
+            final route = MaterialPageRoute(builder: (context) => const TypeDoctGroupScreen());
+            Navigator.push(context, route);
           },
           child: const Column(
             mainAxisSize: MainAxisSize.min,
@@ -283,7 +291,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       children: <BootstrapCol>[
                         BootstrapCol(
                           sizes: 'col-12',
-                          child: Text('Audit Trail', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Color.fromRGBO(2, 63, 120, 1)),),
+                          child: Text('Configuración', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Color.fromRGBO(2, 63, 120, 1)),),
                         ),
                       ],
                     ),
