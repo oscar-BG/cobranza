@@ -268,7 +268,9 @@ class _TableClient extends StatelessWidget {
               const DataCell( Text('Success')),
               DataCell(
                 TextButton.icon(
-                  onPressed: () {                    
+                  onPressed: () {       
+                    final route = MaterialPageRoute(builder: (context) => const ProfilePage1());
+                    Navigator.push(context, route);             
                   },
                   icon: const Icon( Icons.edit_document, color: Colors.white,),
                   label: const Text('Ver', style: TextStyle(color: Colors.white),),

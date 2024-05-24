@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:credito_cobranza/screens/screens.dart';
 import 'package:credito_cobranza/widgets/card_container_home.dart';
 import 'package:credito_cobranza/widgets/custom_popup_menu_button.dart';
+import 'package:credito_cobranza/constants/style.dart';
+import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -45,33 +47,86 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body:  Padding(
-        padding: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text('¡Bienvendido ....!', style: TextStyle( fontSize: 25, fontWeight: FontWeight.bold, color: Color.fromRGBO(2, 63, 120, 1)),),
-            Expanded(
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  int crossAxisCount = constraints.maxWidth > 600 ? 2 : 1;
-                  return GridView.count(
-                    crossAxisCount: crossAxisCount,
-                    crossAxisSpacing: 16.0,
-                    mainAxisSpacing: 16.0,
-                    children: [
-                      _TableClient(),
-                      _MenuOption()
-                    ],
-                  );
-                },
-              ) 
+      body: MenuOptionHome(),
+    );
+  }
+}
+
+class MenuOptionHome extends StatefulWidget {
+  @override
+  _MenuOptionHomeState createState() => _MenuOptionHomeState();
+}
+
+class _MenuOptionHomeState extends State<MenuOptionHome> {
+
+
+ 
+  @override
+  Widget build(BuildContext context) {
+    AppScale _scale = AppScale(context);
+
+    //double height = MediaQuery.of(context).size.height;
+
+    //sm for small screens > 575px and < 768px
+    // md for medium screens > 767px and < 992px
+    // lg for large screens > 991px and < 1200px
+    // xl for extra large screens > 1199px   
+
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: BootstrapContainer(
+          fluid: true,
+          decoration: BoxDecoration(color: Colors.blue),      
+        children: [
+          Material(
+            color: Colors.grey[300],
+              child: BootstrapContainer(
+                fluid: true,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: BootstrapRow(
+                      height: _scale.labelDim * 0.2,
+                      children: <BootstrapCol>[
+                        BootstrapCol(
+                          sizes: 'col-12',
+                          child: Row(
+                            children: [
+                              const Text('¡Bienvendido ....!', style: TextStyle( fontSize: 25, fontWeight: FontWeight.bold, color: Color.fromRGBO(2, 63, 120, 1)),),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: BootstrapRow(
+                      height: 60, //es obligatorio poner una altura al container
+                      children: [
+                        BootstrapCol(
+                          sizes: 'col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6',
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: _TableClient()
+                          ),
+                        ),
+                        BootstrapCol(
+                          sizes: 'col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6',
+                          child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: _MenuOption()
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-            
-          ],
-        ),
-      )
+        ],
+      ),
+      ),
     );
   }
 }
