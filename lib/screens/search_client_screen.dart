@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootstrap/flutter_bootstrap.dart';
+
 import 'package:credito_cobranza/ui/input_decorations_search.dart';
 import 'package:credito_cobranza/widgets/card_container_home.dart';
 import 'package:credito_cobranza/widgets/custom_popup_menu_button.dart';
@@ -46,121 +48,190 @@ class _SearchClientScreenState extends State<SearchClientScreen> {
           ),
         ],
       ),
-      body:  SingleChildScrollView (
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: Column(        
-            children: [
-              const SizedBox(height: 10),
-              const Text('Buscar clientes', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Color.fromRGBO(2, 63, 120, 1)),),
-              Material(
-                color: Colors.grey[300],
-                child: const _FormSearch(),
-              ),
-              const SizedBox(height: 10),
-              Material(
-                color: Colors.grey[300],
-                child: const _TableClient(),
-              )
-            ],
-          ), 
-        ) 
-      ),
+      body:  ClientPage()
     );
   }
 }
 
-class _FormSearch extends StatelessWidget {
-  const _FormSearch({super.key});
 
+class ClientPage extends StatefulWidget {
+  @override
+  _ClientPageState createState() => _ClientPageState();
+}
+
+class _ClientPageState extends State<ClientPage> {
+  
   @override
   Widget build(BuildContext context) {
-    return Form(
-      child:  Column(
-        children: [
-    
-          TextFormField(
-            autofocus: true,
-            autocorrect: false,
-            keyboardType: TextInputType.name,
-            decoration: InputDecorationsSearch.authInputDecoration(hintText: 'Nombre/Razón Social', prefixIcon: Icons.person),
-            style: const TextStyle(color: Colors.black),
-            validator: (value) {
-              // print(value);
-            },
-          ),
-          const SizedBox(height: 10,),
-    
-          TextFormField(
-            autocorrect: false,
-            keyboardType: TextInputType.text,
-            decoration: InputDecorationsSearch.authInputDecoration(hintText: 'RFC', prefixIcon: Icons.person),
-            style: const TextStyle(color: Colors.black),
-            validator: (value) {
-              // print(value);
-            },
-          ),
-          const SizedBox(height: 10,),
-    
-          DropdownButtonFormField(
-            items: const [
-              DropdownMenuItem(value: 'zona1', child: Text('Item 1'),),
-              DropdownMenuItem(value: 'zona2', child: Text('Item 2'),),
-              DropdownMenuItem(value: 'zona3', child: Text('Item 3'),),
-            ],
-            decoration: InputDecorationsSearch.authInputDecoration(hintText: 'Zona', prefixIcon: Icons.person_pin_circle),
-            onChanged: (value) {},
-          ),
-    
-          const SizedBox(height: 10,),
-    
-          DropdownButtonFormField(
-            items: const [
-              DropdownMenuItem(value: 'item1', child: Text('item 1'),),
-              DropdownMenuItem(value: 'item2', child: Text('item 2'),),
-              DropdownMenuItem(value: 'item3', child: Text('item 3'),),
-            ],
-            decoration: InputDecorationsSearch.authInputDecoration(hintText: 'Sucursal Cabecera', prefixIcon: Icons.factory),
-            onChanged: (value) {},
-          ),
-    
-          const SizedBox(height: 10,),
-    
-          DropdownButtonFormField(
-            items: const [
-              DropdownMenuItem(value: 'item1', child: Text('item 1'),),
-              DropdownMenuItem(value: 'item2', child: Text('item 2'),),
-              DropdownMenuItem(value: 'item3', child: Text('item 3'),),
-            ],
-            decoration: InputDecorationsSearch.authInputDecoration(hintText: 'Estatus', prefixIcon: Icons.article_sharp),
-            onChanged: (value) {},
-          ),
-    
-          const SizedBox(height: 10,),
-    
-          DropdownButtonFormField(
-            items: const [
-              DropdownMenuItem(value: 'item1', child: Text('item 1'),),
-              DropdownMenuItem(value: 'item2', child: Text('item 2'),),
-              DropdownMenuItem(value: 'item3', child: Text('item 3'),),
-            ],
-            decoration: InputDecorationsSearch.authInputDecoration(hintText: 'Tipo de Cliente', prefixIcon: Icons.group_rounded),
-            onChanged: (value) {},
-          ),
-    
-          const SizedBox(height: 10,),
-    
-          TextButton.icon(
-            onPressed: () {},
-            icon: const Icon(Icons.search, color: Colors.white,),
-            label: const Text('Buscar cliente', style: TextStyle(color: Colors.white), ),
-            style: TextButton.styleFrom(
-              backgroundColor: const Color.fromRGBO(237, 128, 12, 1),
-              fixedSize: const Size(180, 50),
+    AppScale _scale = AppScale(context);
+    //double height = MediaQuery.of(context).size.height;
+    return Scaffold(
+      body: ListView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+          children: [
+          Container(
+          padding: const EdgeInsets.all(20.0),
+          child: Material(
+            color: Colors.grey[300],
+            child: BootstrapContainer(
+              fluid: true,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: BootstrapRow(
+                    height: 60, //es obligatorio poner una altura al container
+                    children: [
+                      BootstrapCol(
+                        sizes: 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-12',
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                         child: Center(
+                           child: const Text('Buscar clientes', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Color.fromRGBO(2, 63, 120, 1)),),
+                         ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: BootstrapRow(
+                    height: 60, //es obligatorio poner una altura al container
+                    children: [
+                      BootstrapCol(
+                        sizes: 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3',
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextFormField(
+                            autofocus: true,
+                            autocorrect: false,
+                            keyboardType: TextInputType.name,
+                            decoration: InputDecorationsSearch.authInputDecoration(hintText: 'Nombre/Razón Social', prefixIcon: Icons.person),
+                            style: const TextStyle(color: Colors.black),
+                            validator: (value) {
+                              // print(value);
+                            },
+                          ),
+                        ),
+                      ),
+                      BootstrapCol(
+                        sizes: 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3',
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextFormField(
+                            autocorrect: false,
+                            keyboardType: TextInputType.text,
+                            decoration: InputDecorationsSearch.authInputDecoration(hintText: 'RFC', prefixIcon: Icons.person),
+                            style: const TextStyle(color: Colors.black),
+                            validator: (value) {
+                              // print(value);
+                            },
+                          ),
+                        ),
+                      ),
+                      BootstrapCol(
+                        sizes: 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3',
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: DropdownButtonFormField(
+                            items: const [
+                              DropdownMenuItem(value: 'zona1', child: Text('Item 1'),),
+                              DropdownMenuItem(value: 'zona2', child: Text('Item 2'),),
+                              DropdownMenuItem(value: 'zona3', child: Text('Item 3'),),
+                            ],
+                            decoration: InputDecorationsSearch.authInputDecoration(hintText: 'Zona', prefixIcon: Icons.person_pin_circle),
+                            onChanged: (value) {},
+                          ),
+                        ),
+                      ),
+                      BootstrapCol(
+                        sizes: 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3',
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: DropdownButtonFormField(
+                            items: const [
+                              DropdownMenuItem(value: 'item1', child: Text('item 1'),),
+                              DropdownMenuItem(value: 'item2', child: Text('item 2'),),
+                              DropdownMenuItem(value: 'item3', child: Text('item 3'),),
+                            ],
+                            decoration: InputDecorationsSearch.authInputDecoration(hintText: 'Sucursal Cabecera', prefixIcon: Icons.factory),
+                            onChanged: (value) {},
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: BootstrapRow(
+                    height: 60, //es obligatorio poner una altura al container
+                    children: [
+                      BootstrapCol(
+                        sizes: 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3',
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: DropdownButtonFormField(
+                            items: const [
+                              DropdownMenuItem(value: 'item1', child: Text('item 1'),),
+                              DropdownMenuItem(value: 'item2', child: Text('item 2'),),
+                              DropdownMenuItem(value: 'item3', child: Text('item 3'),),
+                            ],
+                            decoration: InputDecorationsSearch.authInputDecoration(hintText: 'Estatus', prefixIcon: Icons.article_sharp),
+                            onChanged: (value) {},
+                          ),
+                        ),
+                      ),
+                      BootstrapCol(
+                        sizes: 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3',
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: DropdownButtonFormField(
+                            items: const [
+                              DropdownMenuItem(value: 'item1', child: Text('item 1'),),
+                              DropdownMenuItem(value: 'item2', child: Text('item 2'),),
+                              DropdownMenuItem(value: 'item3', child: Text('item 3'),),
+                            ],
+                            decoration: InputDecorationsSearch.authInputDecoration(hintText: 'Tipo de Cliente', prefixIcon: Icons.group_rounded),
+                            onChanged: (value) {},
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: BootstrapRow(
+                    height: 60, //es obligatorio poner una altura al container
+                    children: [
+                      BootstrapCol(
+                        sizes: 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-12',
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Center(
+                            child: TextButton.icon(
+                              onPressed: () {},
+                              icon: const Icon(Icons.search, color: Colors.white,),
+                              label: const Text('Buscar cliente', style: TextStyle(color: Colors.white), ),
+                              style: TextButton.styleFrom(
+                                backgroundColor: const Color.fromRGBO(237, 128, 12, 1),
+                                fixedSize: const Size(180, 50),
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+
+                _TableClient()
+              ],
             ),
           ),
-    
-        ],
+        ),
+      ],
       ),
     );
   }
@@ -211,5 +282,25 @@ class _TableClient extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+
+final TextStyle kPageTitleStyle = TextStyle(fontSize: 10.0);
+
+class AppScale {
+  BuildContext _ctxt;
+
+  AppScale(this._ctxt);
+
+  double get labelDim => scaledWidth(.02);
+  double get popupMenuButton => scaledHeight(.095); 
+
+  double scaledWidth(double widthScale) {
+    return MediaQuery.of(_ctxt).size.width * widthScale;
+  }
+
+  double scaledHeight(double heightScale) {
+    return MediaQuery.of(_ctxt).size.height * heightScale;
   }
 }
