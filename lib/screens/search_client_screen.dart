@@ -5,6 +5,7 @@ import 'package:credito_cobranza/ui/input_decorations_search.dart';
 import 'package:credito_cobranza/widgets/card_container_home.dart';
 import 'package:credito_cobranza/widgets/custom_popup_menu_button.dart';
 import 'package:credito_cobranza/screens/screens.dart';
+import 'package:credito_cobranza/constants/style.dart';
 
 class SearchClientScreen extends StatefulWidget {
   const SearchClientScreen({super.key});
@@ -282,25 +283,5 @@ class _TableClient extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-
-final TextStyle kPageTitleStyle = TextStyle(fontSize: 10.0);
-
-class AppScale {
-  BuildContext _ctxt;
-
-  AppScale(this._ctxt);
-
-  double get labelDim => scaledWidth(.02);
-  double get popupMenuButton => scaledHeight(.095); 
-
-  double scaledWidth(double widthScale) {
-    return MediaQuery.of(_ctxt).size.width * widthScale;
-  }
-
-  double scaledHeight(double heightScale) {
-    return MediaQuery.of(_ctxt).size.height * heightScale;
   }
 }

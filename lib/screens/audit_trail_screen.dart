@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootstrap/flutter_bootstrap.dart';
+
 import 'package:credito_cobranza/widgets/custom_popup_menu_button.dart';
 import 'package:credito_cobranza/screens/screens.dart';
+import 'package:credito_cobranza/ui/input_decorations_search.dart';
+import 'package:credito_cobranza/widgets/card_container_home.dart';
+import 'package:credito_cobranza/constants/style.dart';
+
 
 class AuditTrailScreen extends StatelessWidget {
   const AuditTrailScreen({super.key});
@@ -39,68 +45,171 @@ class AuditTrailScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: ResponsiveGrid(),
+      body: AuditTrail(),
     );
   }
 }
 
 
 
-class ResponsiveGrid extends StatelessWidget {
+class AuditTrail extends StatefulWidget {
+  @override
+  _AuditTrailState createState() => _AuditTrailState();
+}
+
+class _AuditTrailState extends State<AuditTrail> {
+  
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('Este es un tituulo', style: TextStyle(fontSize: 30)),
-          Expanded(
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                // Determina el número de columnas basado en el ancho disponible
-                int crossAxisCount = constraints.maxWidth > 600 ? 2 : 1;
-            
-                return GridView.count(
-                  crossAxisCount: crossAxisCount,
-                  crossAxisSpacing: 16.0,
-                  mainAxisSpacing: 16.0,
-                  children: [
-                    _GridItem(index: 0),
-                    _GridItem(index: 1),
-                    _GridItem(index: 2),
-                    _GridItem(index: 3),
-                  ],
-                );
-              },
+    AppScale _scale = AppScale(context);
+    //double height = MediaQuery.of(context).size.height;
+    return Scaffold(
+      body: ListView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+          children: [
+          Container(
+          padding: const EdgeInsets.all(20.0),
+          child: Material(
+            color: Colors.grey[300],
+            child: BootstrapContainer(
+              fluid: true,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: BootstrapRow(
+                    height: 60, //es obligatorio poner una altura al container
+                    children: [
+                      BootstrapCol(
+                        sizes: 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-12',
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                         child: const Text('Audit Trail', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Color.fromRGBO(2, 63, 120, 1)),),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: BootstrapRow(
+                    height: 60, //es obligatorio poner una altura al container
+                    children: [
+                      BootstrapCol(
+                        sizes: 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3',
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextFormField(
+                            autofocus: true,
+                            autocorrect: false,
+                            keyboardType: TextInputType.name,
+                            decoration: InputDecorationsSearch.authInputDecoration(hintText: 'Fecha Inicio', prefixIcon: Icons.calendar_month_sharp),
+                            style: const TextStyle(color: Colors.black),
+                            validator: (value) {
+                              // print(value);
+                            },
+                          ),
+                        ),
+                      ),
+                      BootstrapCol(
+                        sizes: 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3',
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextFormField(
+                            autocorrect: false,
+                            keyboardType: TextInputType.text,
+                            decoration: InputDecorationsSearch.authInputDecoration(hintText: 'Fecha Fin', prefixIcon: Icons.calendar_month_sharp),
+                            style: const TextStyle(color: Colors.black),
+                            validator: (value) {
+                              // print(value);
+                            },
+                          ),
+                        ),
+                      ),
+                      
+                      
+                    ],
+                  ),
+                ),
+                
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: BootstrapRow(
+                    height: 60, //es obligatorio poner una altura al container
+                    children: [
+                      BootstrapCol(
+                        sizes: 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-12',
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Center(
+                            child: TextButton.icon(
+                              onPressed: () {},
+                              icon: const Icon(Icons.search, color: Colors.white,),
+                              label: const Text('Generar Reporte', style: TextStyle(color: Colors.white), ),
+                              style: TextButton.styleFrom(
+                                backgroundColor: const Color.fromRGBO(237, 128, 12, 1),
+                                fixedSize: const Size(180, 50),
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+
+                _TableClient()
+              ],
             ),
           ),
-        ],
+        ),
+      ],
       ),
     );
   }
 }
 
-class _GridItem extends StatelessWidget {
-  final int index;
-
-  const _GridItem({Key? key, required this.index}) : super(key: key);
+class _TableClient extends StatelessWidget {
+  const _TableClient({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.blue,
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Center(
-        child: Text(
-          'Item ${index + 1}',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+    return CardContainerHome(
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: DataTable(
+          headingTextStyle: const TextStyle(color: Colors.white),
+          dataTextStyle: const TextStyle(color: Colors.white),
+          columns: const <DataColumn>[
+            DataColumn(label: Expanded(child: Text('RFC'))),
+            DataColumn(label: Expanded(child: Text('Nombre'))),
+            DataColumn(label: Expanded(child: Text('Tipo Cliente'))),
+            DataColumn(label: Expanded(child: Text('Zona 1'))),
+            DataColumn(label: Expanded(child: Text('Sucursal'))),
+            DataColumn(label: Expanded(child: Text('Estatus'))),
+            DataColumn(label: Expanded(child: Text('Expediente'))),
+          ],
+          rows:  <DataRow>[
+            DataRow(cells: <DataCell>[
+              const DataCell( Text('SDTRRTF')),
+              const DataCell( Text('PERSON 1')),
+              const DataCell( Text('Tipo 1')),
+              const DataCell( Text('Zona 1')),
+              const DataCell( Text('Sucursal 1')),
+              const DataCell( Text('Success')),
+              DataCell(
+                TextButton.icon(
+                  onPressed: () {                    
+                  },
+                  icon: const Icon( Icons.edit_document, color: Colors.white,),
+                  label: const Text('Ver', style: TextStyle(color: Colors.white),),
+                  style: TextButton.styleFrom(
+                      backgroundColor: const Color.fromRGBO(237, 128, 12, 1),
+                      fixedSize: const Size(100, 30),
+                  ),
+                )
+              ),
+            ])
+          ],
         ),
       ),
     );
