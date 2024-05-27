@@ -83,7 +83,7 @@ class _ClientPageState extends State<ClientPage> {
                     height: 60, //es obligatorio poner una altura al container
                     children: [
                       BootstrapCol(
-                        sizes: 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-12',
+                        sizes: 'col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12',
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                          child: Center(
