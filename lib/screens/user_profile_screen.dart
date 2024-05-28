@@ -57,6 +57,25 @@ class __InformationProfileState extends State<_InformationProfile> {
   final TextEditingController _txtNombre = TextEditingController(text: "Persona 1 ...");
   final TextEditingController _txtRFC = TextEditingController(text: "DSER435RERER");
   final TextEditingController _numCliente = TextEditingController(text: "4354546565");
+  final TextEditingController _txtFechaSolicitud = TextEditingController(text: "11/04/2024");
+  final TextEditingController _txtTipoSolicitud = TextEditingController(text: "Aumento Línea Crédito");
+  final TextEditingController _txtTipoCliente = TextEditingController(text: "Persona Moral");
+  final TextEditingController _txtZona = TextEditingController(text: "METRO");
+  final TextEditingController _txtSucursalCabecera = TextEditingController(text: "MATRIZ");
+  final TextEditingController _txtEstatus = TextEditingController(text: "Aceptado");
+  final TextEditingController _txtGiroEmpresarial = TextEditingController(text: "Tecnología");
+  final TextEditingController _txtActaConstitutiva = TextEditingController(text: "No");
+  final TextEditingController _txtCalle = TextEditingController(text: "Avenida 1");
+  final TextEditingController _txtNumInterior = TextEditingController(text: "100");
+  final TextEditingController _txtNumExterior = TextEditingController(text: "2B");
+  final TextEditingController _txtColonia = TextEditingController(text: "Cuauhtémoc");
+  final TextEditingController _txtMunicipio = TextEditingController(text: "Ciudad de México");
+  final TextEditingController _txtEstado = TextEditingController(text: "México");
+  final TextEditingController _txtPais = TextEditingController(text: "México");
+  final TextEditingController _txtCP = TextEditingController(text: "4252");
+  final TextEditingController _txtTelefono = TextEditingController(text: "5555555555");
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,7 +135,7 @@ class __InformationProfileState extends State<_InformationProfile> {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Text('Núm, Nómina Ejecutivo: '),
+                                      Text('Núm. Nómina Ejecutivo: '),
                                       Text('54656165'),
                                     ],
                                   ),
@@ -225,6 +244,7 @@ class __InformationProfileState extends State<_InformationProfile> {
                                               child: Padding(
                                                 padding: const EdgeInsets.all(8.0),
                                                 child: TextFormField(
+                                                  controller: _txtFechaSolicitud,
                                                   decoration: InputDecoration(
                                                     labelText: 'Fecha Solicitud'
                                                   ),
@@ -237,6 +257,7 @@ class __InformationProfileState extends State<_InformationProfile> {
                                               child: Padding(
                                                 padding: const EdgeInsets.all(8.0),
                                                 child: TextFormField(
+                                                  controller: _txtTipoSolicitud,
                                                   decoration: InputDecoration(
                                                     labelText: 'Tipo Solicitud'
                                                   ),
@@ -248,6 +269,7 @@ class __InformationProfileState extends State<_InformationProfile> {
                                               child: Padding(
                                                 padding: const EdgeInsets.all(8.0),
                                                 child: TextFormField(
+                                                  controller: _txtTipoCliente,
                                                   decoration: InputDecoration(
                                                     labelText: 'Tipo de Cliente'
                                                   ),
@@ -267,6 +289,7 @@ class __InformationProfileState extends State<_InformationProfile> {
                                               child: Padding(
                                                 padding: const EdgeInsets.all(8.0),
                                                 child: TextFormField(
+                                                  controller: _txtZona,
                                                   decoration: InputDecoration(
                                                     labelText: 'Zona'
                                                   ),
@@ -279,6 +302,7 @@ class __InformationProfileState extends State<_InformationProfile> {
                                               child: Padding(
                                                 padding: const EdgeInsets.all(8.0),
                                                 child: TextFormField(
+                                                  controller: _txtSucursalCabecera,
                                                   decoration: InputDecoration(
                                                     labelText: 'Sucursal Cabecera'
                                                   ),
@@ -290,6 +314,7 @@ class __InformationProfileState extends State<_InformationProfile> {
                                               child: Padding(
                                                 padding: const EdgeInsets.all(8.0),
                                                 child: TextFormField(
+                                                  controller: _txtEstatus,
                                                   decoration: InputDecoration(
                                                     labelText: 'Estatus'
                                                   ),
@@ -309,6 +334,7 @@ class __InformationProfileState extends State<_InformationProfile> {
                                               child: Padding(
                                                 padding: const EdgeInsets.all(8.0),
                                                 child: TextFormField(
+                                                  controller: _txtGiroEmpresarial,
                                                   decoration: InputDecoration(
                                                     labelText: 'Giro Empresarial'
                                                   ),
@@ -321,6 +347,7 @@ class __InformationProfileState extends State<_InformationProfile> {
                                               child: Padding(
                                                 padding: const EdgeInsets.all(8.0),
                                                 child: TextFormField(
+                                                  controller: _txtActaConstitutiva,
                                                   decoration: InputDecoration(
                                                     labelText: 'Cambios en acta constitutiva'
                                                   ),
@@ -355,6 +382,7 @@ class __InformationProfileState extends State<_InformationProfile> {
                                               child: Padding(
                                                 padding: const EdgeInsets.all(8.0),
                                                 child: TextFormField(
+                                                  controller: _txtCalle,
                                                   decoration: InputDecoration(
                                                     labelText: 'Calle'
                                                   ),
@@ -367,6 +395,7 @@ class __InformationProfileState extends State<_InformationProfile> {
                                               child: Padding(
                                                 padding: const EdgeInsets.all(8.0),
                                                 child: TextFormField(
+                                                  controller: _txtNumInterior,
                                                   decoration: InputDecoration(
                                                     labelText: 'Núm Interior'
                                                   ),
@@ -378,6 +407,7 @@ class __InformationProfileState extends State<_InformationProfile> {
                                               child: Padding(
                                                 padding: const EdgeInsets.all(8.0),
                                                 child: TextFormField(
+                                                  controller: _txtNumExterior,
                                                   decoration: InputDecoration(
                                                     labelText: 'Núm Exterior'
                                                   ),
@@ -397,6 +427,7 @@ class __InformationProfileState extends State<_InformationProfile> {
                                               child: Padding(
                                                 padding: const EdgeInsets.all(8.0),
                                                 child: TextFormField(
+                                                  controller: _txtColonia,
                                                   decoration: InputDecoration(
                                                     labelText: 'Colonia'
                                                   ),
@@ -409,6 +440,7 @@ class __InformationProfileState extends State<_InformationProfile> {
                                               child: Padding(
                                                 padding: const EdgeInsets.all(8.0),
                                                 child: TextFormField(
+                                                  controller: _txtMunicipio,
                                                   decoration: InputDecoration(
                                                     labelText: 'Municipio/Alcaldía'
                                                   ),
@@ -420,6 +452,7 @@ class __InformationProfileState extends State<_InformationProfile> {
                                               child: Padding(
                                                 padding: const EdgeInsets.all(8.0),
                                                 child: TextFormField(
+                                                  controller: _txtEstado,
                                                   decoration: InputDecoration(
                                                     labelText: 'Estado'
                                                   ),
@@ -439,6 +472,7 @@ class __InformationProfileState extends State<_InformationProfile> {
                                               child: Padding(
                                                 padding: const EdgeInsets.all(8.0),
                                                 child: TextFormField(
+                                                  controller: _txtPais,
                                                   decoration: InputDecoration(
                                                     labelText: 'País'
                                                   ),
@@ -451,6 +485,7 @@ class __InformationProfileState extends State<_InformationProfile> {
                                               child: Padding(
                                                 padding: const EdgeInsets.all(8.0),
                                                 child: TextFormField(
+                                                  controller: _txtCP,
                                                   decoration: InputDecoration(
                                                     labelText: 'C.P'
                                                   ),
@@ -462,6 +497,7 @@ class __InformationProfileState extends State<_InformationProfile> {
                                               child: Padding(
                                                 padding: const EdgeInsets.all(8.0),
                                                 child: TextFormField(
+                                                  controller: _txtTelefono,
                                                   decoration: InputDecoration(
                                                     labelText: 'Teléfono'
                                                   ),

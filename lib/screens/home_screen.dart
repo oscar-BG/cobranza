@@ -92,7 +92,7 @@ class _MenuOptionHomeState extends State<MenuOptionHome> {
                           sizes: 'col-12',
                           child: Row(
                             children: [
-                              const Text('¡Bienvendido ....!', style: TextStyle( fontSize: 25, fontWeight: FontWeight.bold, color: Color.fromRGBO(2, 63, 120, 1)),),
+                              const Text('¡Bienvenido ....!', style: TextStyle( fontSize: 25, fontWeight: FontWeight.bold, color: Color.fromRGBO(2, 63, 120, 1)),),
                             ],
                           ),
                         ),

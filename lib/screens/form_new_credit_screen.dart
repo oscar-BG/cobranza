@@ -366,7 +366,7 @@ class _FormCreditInformacionState extends State<FormCreditInformacion> {
                 child: const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Center(
-                    child: Text('Credito', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Color.fromRGBO(2, 63, 120, 1)),),
+                    child: Text('Crédito', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Color.fromRGBO(2, 63, 120, 1)),),
                   ),
                 ),
               ),
