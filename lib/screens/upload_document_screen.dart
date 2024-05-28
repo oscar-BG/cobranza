@@ -61,7 +61,7 @@ class __UploadDocumentState extends State<_UploadDocument> {
           fluid: true,
           children: [
             Material(
-              color: Colors.grey[300],
+              color: Colors.white,
               child: BootstrapContainer(
                 fluid: true,
                 children: [
@@ -79,7 +79,7 @@ class __UploadDocumentState extends State<_UploadDocument> {
                               decoration:  BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 border: Border.all(width: 2,color: Colors.white),
-                                color: Colors.white
+                                color: Colors.grey[300]
                               ),
                               child: SingleChildScrollView(
                                 scrollDirection: Axis.horizontal,
@@ -128,7 +128,7 @@ class __UploadDocumentState extends State<_UploadDocument> {
                               decoration:  BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 border: Border.all(width: 2,color: Colors.white),
-                                color: Colors.white
+                                color: Colors.grey[300]
                               ),
                               child: Column(
                                 children: [

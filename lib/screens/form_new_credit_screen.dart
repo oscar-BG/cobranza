@@ -47,27 +47,6 @@ class _FormNewCreditScreenState extends State<FormNewCreditScreen> {
         ],
       ),
       body: FormCredit(),
-      // body: SingleChildScrollView(
-      //   child: Padding(
-      //     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      //     child: Column(
-      //       children: [
-      //         SizedBox(height: 10,),
-      //         Text('Información del cliente', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Color.fromRGBO(2, 63, 120, 1)),),
-
-      //         Material(
-      //           color: Colors.grey[300],
-      //           child: _FormClient(),
-      //         ),
-      //         SizedBox(height: 20,),
-      //         Material(
-      //           color: Colors.grey[300],
-      //           child: _FormCredit(),
-      //         )
-      //       ],
-      //     ),
-      //   ),
-      // )
     );
   }
 }
@@ -94,7 +73,7 @@ class _FormCreditState extends State<FormCredit> {
           Container(
             padding: const EdgeInsets.all(20.0),
             child: Material(
-              color: Colors.grey[300],
+              color: Colors.white,
               child: BootstrapContainer(
                 fluid: true,
                 children: [
@@ -376,7 +355,7 @@ class _FormCreditInformacionState extends State<FormCreditInformacion> {
     return Container(
       padding: const EdgeInsets.all(20.0),
       child: Material(
-        color: Colors.grey[300],
+        color: Colors.white,
         child: BootstrapContainer(
           fluid: true,
           children: [

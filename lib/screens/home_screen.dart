@@ -79,7 +79,7 @@ class _MenuOptionHomeState extends State<MenuOptionHome> {
           decoration: BoxDecoration(color: Colors.blue),      
         children: [
           Material(
-            color: Colors.grey[300],
+            color: Colors.white,
               child: BootstrapContainer(
                 fluid: true,
                 children: [

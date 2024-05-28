@@ -73,7 +73,7 @@ class _ClientPageState extends State<ClientPage> {
           Container(
           padding: const EdgeInsets.all(20.0),
           child: Material(
-            color: Colors.grey[300],
+            color: Colors.white,
             child: BootstrapContainer(
               fluid: true,
               children: [

@@ -76,7 +76,7 @@ class _CardCatalogueState extends State<CardCatalogue> {
           fluid: true,
         children: [
           Material(
-            color: Colors.grey[300],
+            color: Colors.white,
               child: BootstrapContainer(
                 fluid: true,
                 children: [
@@ -319,7 +319,7 @@ class _CardTypeClient extends StatelessWidget {
 }
 
 BoxDecoration _createCardShape() => BoxDecoration(
-  color: Colors.white,
+  color: Colors.grey[300],
   borderRadius: BorderRadius.circular(25),
   boxShadow: const [
       BoxShadow(

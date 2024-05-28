@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         'config_screen' : (_) => ConfigScreen()
       },
       theme: ThemeData.light(useMaterial3: true).copyWith(
-        scaffoldBackgroundColor: Colors.grey[300]
+        scaffoldBackgroundColor: Colors.white
       ),
     );
   }
