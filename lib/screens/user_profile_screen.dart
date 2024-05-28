@@ -583,7 +583,10 @@ class __InformationProfileState extends State<_InformationProfile> {
                                                 padding: const EdgeInsets.all(8.0),
                                                 child: Center(
                                                   child: TextButton.icon(
-                                                    onPressed: () {},
+                                                    onPressed: () {
+                                                      final route = MaterialPageRoute(builder: (context) => const UploadDocumentScreen());
+                                                      Navigator.push(context, route);
+                                                    },
                                                     icon: const Icon(Icons.edit_document, color: Colors.white,),
                                                     label: const Text('Documentos', style: TextStyle(color: Colors.white), ),
                                                     style: TextButton.styleFrom(

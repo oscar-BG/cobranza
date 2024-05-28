@@ -10,3 +10,4 @@ export 'package:credito_cobranza/screens/type_doct_physical_person_screen.dart';
 export 'package:credito_cobranza/screens/type_doct_moral_person_screen.dart';
 export 'package:credito_cobranza/screens/type_doct_group_screen.dart';
 export 'package:credito_cobranza/screens/user_profile_screen.dart';
+export 'package:credito_cobranza/screens/upload_document_screen.dart';
